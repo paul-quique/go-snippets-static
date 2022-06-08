@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>Tutoriel Golang - Cours de programmation complet pour maîtriser le langage Go</title>
+    <meta name="description" content="A simple HTML5 Template for new projects.">
+    <meta name="author" content="Paul QUIQUE">
+
+    <meta property="og:title" content="A Basic HTML5 Template">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+    <meta property="og:description" content="A simple HTML5 Template for new projects.">
+    <meta property="og:image" content="image.png">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/prism.css">
+
+</head>
+
+<body>
+    <div class="header"> </div>
+    <div class="navbar" id="navtop">
+        <div class="website-name">
+            <span class="logo-text">Go Ninja</span>
+            <img src="../img/logo.png" alt="ninja gopher logo learning golang programming" class="logo-img" />
+        </div>
+        <div id="button-menu" title="Montrer/Cacher le menu du site">
+            <img src="../img/menu.png" alt="open the menu to learn more about golang language" id="toggle-menu" />
+        </div>
+    </div>
+    <div id="menu">
+        <div class="menu-item">Héberger votre code <span class="gradient-filled">NEW</span></div>
+        <div class="menu-item glowing-underline">Cours web complet en Golang (-45%)💎</div>
+        <div class="menu-item">Contact</div>
+        <div class="menu-item">Mentions légales</div>
+        <div class="menu-item gradient-background">Connexion</div>
+    </div>
+    <a id="to-top" href="#navtop" title="Retourner en haut de la page" onclick="movetotop()"></a>
+    <h1>Tutoriel complet pour apprendre à coder avec le langage de programmation Go</h1>
+    <div class="banner"></div>
+    <div class="menu-section"><a href="#1">1. Introduction - Qu'est-ce que le langage Go ?</a></div>
+    <div class="menu-section"><a href="#2">2. Avantages et inconvénients du langage Go</a></div>
+    <div class="menu-section"><a href="#3">3. Créez votre premier programme "hello world" en Go</a></div>
+    <div class="menu-section"><a href="#4">4. Packages, variables et fonctions</a></div>
+    <div class="menu-subsection"><a href="#4.1"><span class="gray-bg">#</span> 4.1 Les packages</a></div>
+    <div class="menu-subsection"><a href="#4.2"><span class="gray-bg">#</span> 4.2 Imports</a></div>
+    <div class="menu-subsection"><a href="#4.3"><span class="gray-bg">#</span> 4.3 Noms des variables exportées</a>
+    </div>
+    <div class="menu-subsection"><a href="#4.4"><span class="gray-bg">#</span> 4.4 Les fonctions</a></div>
+    <div class="menu-subsection"><a href="#4.5"><span class="gray-bg">#</span> 4.5 Fonctions (suite)</a></div>
+    <div class="menu-subsection"><a href="#4.6"><span class="gray-bg">#</span> 4.6 Renvoyer plusieurs valeurs</a></div>
+    <div class="menu-subsection"><a href="#4.7"><span class="gray-bg">#</span> 4.7 Donner un nom aux valeurs de
+            retour</a></div>
+    <div class="menu-subsection"><a href="#4.8"><span class="gray-bg">#</span> 4.8 Déclarer une variable en Go</a></div>
+    <div class="menu-subsection"><a href="#4.9"><span class="gray-bg">#</span> 4.9 Initialisation d'une variable</a>
+    </div>
+    <div class="menu-subsection"><a href="#4.10"><span class="gray-bg">#</span> 4.10 Initialiser avec l'opérateur
+            ':='</a></div>
+    <div class="menu-subsection"><a href="#4.11"><span class="gray-bg">#</span> 4.11 Les types primitifs</a></div>
+    <div class="menu-subsection"><a href="#4.12"><span class="gray-bg">#</span> 4.12 Les valeurs d'initialisation par
+            défaut</a></div>
+    <div class="menu-subsection"><a href="#4.13"><span class="gray-bg">#</span> 4.13 Conversion d'un type vers un
+            autre</a></div>
+    <div class="menu-subsection"><a href="#4.14"><span class="gray-bg">#</span> 4.14 Les constantes</a></div>
+    <h2 id="1">1. Introduction - Qu'est-ce que le langage Go ?</h2>
+    <p>Golang est un langage de programmation développé en 2007 par un équipe d'ingénieurs de Google. Le site officiel
+        de Go (<a href="https://go.dev/dl/">https://go.dev/dl/</a>)
+        permet de télécharger et d'installer le langage en moins de 5 minutes !
+        <br>Go est souvent comparé au langage de programmation Python du fait de la <strong>simplicité
+            syntaxique</strong> des deux langages.
+        Cependant, Python est un langage <a href="http://www.france-ioi.org/algo/course.php?idChapter=561&idCourse=2368"
+            target="_blank">interprété</a>
+        tandis que Go doit être <a href="http://www.france-ioi.org/algo/course.php?idChapter=561&idCourse=2368"
+            target="_blank">compilé</a> avant d'être exécuté.
+    </p>
+    <h2 id="2">2. Avantages et inconvénients du langage Go</h2>
+    <p>Le langage possède de nombreux avantages du fait de sa relative jeunesse. L'équipe de Google chargée de
+        développer le project
+        a réussi à pallier les problèmes des autres langages de programmation (temps de compilation trops longs, syntaxe
+        compliquée qui
+        rend le code difficile à relire, etc) pour aboutir à un langage qui résout un bon nombre de problèmes.
+        <br><br>
+        Voici une liste non exhaustive d'avantages de Go :
+        <br>
+    </p>
+    <ul>
+        <li>Syntaxe simple qui pemet d'avoir un code &nbsp;<strong>facilement lisible</strong></li>
+        <li>Exécution du code &nbsp;<strong>extrêmement rapide</strong>&nbsp; (performances proche du langage C)</li>
+        <li>Temps de compilation très courts (de l'ordre de quelques secondes)</li>
+        <li>La bibliothèque standard est riche et complète (package math, image, crypto, http, etc... fournis)</li>
+        <li>Langage utilisé par les plus <strong>grandes entreprises de la tech</strong> (Google, Dropbox, Mediafire,
+            Twitch, ...)</li>
+    </ul>
+    <h2 id="3">3. Créez votre premier programme "hello world" en Go</h2>
+    <p>J'ai conçu ce tutoriel pour que n'importe qui puisse découvrir le langage sans aucune connaissance préalable. En
+        d'autres termes,
+        vous allez pouvoir apprendre à coder en Go <strong>en partant de zéro!</strong>
+        <br><br>
+        Le site officiel du langage propose un outil pour exécuter son code directement en ligne. C'est <a
+            href="https://go.dev/play/" target="_blank">cette plateforme</a> que nous utiliserons dans un premier temps.
+        Vous remarquerez que l'absence de coloration syntaxique sur le site officiel est volontaire car la syntaxe du
+        langage est très simple.
+        <br><br>
+        Cependant, j'ai activé la coloration syntaxique dans les zones de code de mon site à des fins pédagogiques.
+    </p>
+    <p>
+        Vous êtes prêts à commencer ? Détaillons ensemble le code qui permet d'afficher le <a
+            href="https://fr.wikipedia.org/wiki/Hello_world" target="_blank">traditionnel 'Hello World !'</a>
+        en Go!</p>
+    <div class="code-area">
+        <div class="title-bar">
+            Programme "Hello World!"
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import (
+    "fmt"
+)
+                     
+func main() {
+    fmt.Println("Hello World !")
+}             
+</code></pre>
+        </div>
+    </div>
+
+    <p>
+        La première ligne, <code class="language-go">package main</code>, indique au compilateur que le code est destiné
+        à être exécuté
+        et non
+        à être utilisé en tant que bibliothèque. Nous reviendrons ultérieurement sur cette instruction.
+    </p>
+
+    <p>
+        La deuxième ligne, <code class="language-go">import ("fmt")</code>, indique au compilateur qu'il est nécessaire
+        d'importer la
+        bibliothèque standard
+        <code class="language-go">"fmt"</code>, abréviation du mot "ForMaT", pour afficher du texte.
+    </p>
+
+    <p>
+        On remarque ensuite qu'à l'instar de nombreux langages de programmation, Go dispose d'une <strong>fonction
+            principale</strong> qui sera appelée
+        lors de l'exécution du code!
+        Vous l'aurez compris, il s'agit de la fonction <code class="language-go">main()</code>.
+    </p>
+
+    <p>
+        Enfin, on place dans cette fonction principale une ligne charger d'appeler la fonction
+        <code class="language-go">Println()</code>
+        de la bibliothèque <code class="language-go">"fmt"</code>. Cette fonction prend en paramètre une chaîne de
+        caractères (ici "Hello World!")
+        qu'elle affiche dans la <strong>sortie standard</strong> (la console)
+        avant de revenir à la ligne.
+    </p>
+    <p>*** L'icône flèche dans rond bleu de mon site vous redirigera vers le site officiel avec le code déjà tapé. Celà
+        vous permet de modifier le code pour vous familiariser avec le langage !***</p>
+    <p>Exercice: Modifiez le programme pour afficher "Bonjour les Gophers".</p>
+    <div class="ask-email">
+        <div class="ask-email-text">Carte Amazon de 15€ par mail en vous inscrivant à la newsletter</div>
+        <div class="ask-email-form">
+            <input type="text" id="email-input" name="email-input" required minlength="6" maxlength="60" size="10"
+                placeholder="prénom.nom@example.com">
+            <div class="ask-email-btn" id="ask-email-btn">Recevoir mon lot 🎁</div>
+        </div>
+    </div>
+    <h2 id="4">4. Packages, variables et fonctions</h2>
+    <h3 id="4.1">4.1 Les packages</h3>
+    <p>
+        Un programme Go est composé de packages, dans lesquels on regroupe nos fichiers de code. <br>
+
+        La fonction principale <code class="language-go">main()</code> de notre programme est placée dans le package
+        principal déclaré
+        avec l'instruction <code class="language-go">package main</code>.
+    </p>
+    <div class="code-area">
+        <div class="title-bar">
+            Afficher un nombre aléatoire
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "math/rand"
+)
+                
+func main() {
+    fmt.Println("My favorite number is", rand.Intn(10))
+}  
+</code></pre>
+        </div>
+    </div>
+    <p>
+        Le programme ci-dessus utilise les packages <code class="language-go">"fmt"</code> et <code
+            class="language-go">"math/rand"</code>. Ces packages se trouvent dans la bibliothèque
+        standard, pas besoin de les télécharger!<br><br>
+
+        Par convention, le nom du package est le même que le dernier élément du chemin d'importation. Par exemple, pour
+        utiliser une fonction du package <code class="language-go">"math/rand"</code> on utilisera <code
+            class="language-go">rand.Fonction()</code>.<br><br>
+
+        Remarque : L'environnement dans lequel ces programmes sont exécutés est déterministe, donc chaque fois que vous
+        exécutez l'exemple de programme <code class="language-go">rand.Intn(10)</code> renverra le même nombre.<br><br>
+
+        (Pour voir un nombre différent, il faut fournir une 'graine' au générateur de nombres avec <code
+            class="language-go">rand.Seed()</code>.)
+    </p>
+    <h3 id="4.2">4.2 Imports</h3>
+    <p>
+        Ce code montre comment regrouper plusieurs importations de bibliothèques en une seule instruction "factorisée"
+        grâce aux parenthèses.
+    </p>
+    <div class="code-area">
+        <div class="title-bar">
+            Imports en Go
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "math/rand"
+)
+/*A éviter: (le _ signifie que l'on n'utilise pas les bibliothèques importées*/ 
+import _ "net/http"
+import _ "image/png"
+
+func main() {
+    fmt.Printf("Racine de 7 vaut %g.\n", math.Sqrt(7))
+}  
+        </code></pre>
+        </div>
+    </div>
+    <p>
+        Vous pouvez également écrire plusieurs instructions d'importation à la suite, mais ce n'est pas une bonne
+        pratique: en effet, on évitera en général ce genre de déclarations redondantes!
+    </p>
+    <h3 id="4.3">4.3 Noms des variables exportées</h3>
+    <p>
+        En Go, un nom de variable est <strong>exporté</strong> s'il commence par une majuscule. Par exemple,
+        <code class="language-go">Pizza</code> est un nom exporté, tout comme <code class="language-go">Pi</code>,
+        qui est exporté depuis le package <code class="language-go">math</code>.<br><br>
+
+        <code class="language-go">pizza</code> et <code class="language-go">pi</code> ne commencent pas par une
+        majuscule, ils ne sont donc pas exportés.<br><br>
+
+        Lors de l'importation d'un package, vous ne pouvez accéder et utiliser QUE ses variables exportées. Les
+        variables "non exportées"
+        ne sont PAS accessibles depuis l'extérieur du package.<br><br>
+
+        Exécutez le code. Notez le message d'erreur.<br><br>
+
+        Pour corriger l'erreur, renommez <code class="language-go">math.pi</code> en <code
+            class="language-go">math.Pi</code> et réessayez.
+    </p>
+    <div class="code-area">
+        <div class="title-bar">
+            Corrigez l'erreur pour afficher pi
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "math"
+)
+                
+func main() {
+    fmt.Println(math.pi)
+}                
+        </code></pre>
+        </div>
+    </div>
+    <h3 id="4.4">4.4 Les fonctions</h3>
+    <p>
+        Une fonction peut prendre zéro ou plusieurs arguments.<br><br>
+
+        Dans cet exemple, <code class="language-go">add()</code> prend deux paramètres de type int (entier) et renvoie
+        leur
+        somme.<br><br>
+
+        Notez que le type vient APRÈS le nom de la variable.
+    </p>
+    <div class="code-area">
+        <div class="title-bar">
+            Notre première fonction
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import "fmt"
+                
+func add(x int, y int) int {
+    return x + y
+}
+                
+func main() {
+    fmt.Println(add(42, 13))
+}
+        </code></pre>
+        </div>
+    </div>
+
+    <h3 id="4.5">4.5 Fonctions (suite)</h3>
+    <p>
+        Lorsque plusieurs paramètres consécutifs sont du même type, vous pouvez omettre le
+        type de tous sauf le dernier.<br><br>
+
+        Dans cet exemple, nous avons raccourci<br><br>
+
+        <code class="language-go">x int, y int</code><br><br>
+        en<br><br>
+        <code class="language-go">x, y int</code>
+    </p>
+    <div class="code-area">
+        <div class="title-bar">
+            Simplification du code précédent
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import "fmt"
+                
+func add(x, y int) int {
+    return x + y
+}
+                
+func main() {
+    fmt.Println(add(42, 13))
+}
+        </code></pre>
+        </div>
+    </div>
+    <h3 id="4.6">4.6 Renvoyer plusieurs valeurs</h3>
+    <p>Une fonction peut renvoyer <strong>n'importe quel nombre de valeurs</strong>.
+
+        La fonction <code class="language-go">swap()</code> (échanger) renvoie deux chaînes de caractères.</p>
+    <div class="code-area">
+        <div class="title-bar">
+            Retourner plusieurs valeurs
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+            
+import (
+    "fmt"
+)
+
+func swap(x, y string) (string, string) {
+    return y, x
+}
+            
+func main() {
+    a, b := swap("hello", "world")
+    fmt.Println(a, b)
+}         
+            </code></pre>
+        </div>
+    </div>
+
+    <h3 id="4.7">4.7 Donner un nom aux valeurs de retour</h3>
+    <p>Les valeurs de retour de Go peuvent être nommées. Si c'est le cas, elles sont traitées comme des variables
+        définies en haut de la fonction.<br><br>
+
+        Ces noms doivent être utilisés pour documenter la signification des valeurs de retour.<br><br>
+
+        Une instruction return sans arguments renvoie <strong>automatiquement toutes les valeurs de retour
+            nommées</strong>. C'est ce qu'on appelle un retour "nu" (naked return).<br><br>
+
+        Les instructions de retour nues ne doivent être utilisées que dans les <strong>fonctions courtes</strong>, comme
+        dans l'exemple présenté ici. Ils peuvent nuire à la lisibilité dans les fonctions plus longues.</p>
+
+    <div class="code-area">
+        <div class="title-bar">
+            Retour nu
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import "fmt"
+                    
+func split(sum int) (x, y int) {
+    x = sum * 4 / 9
+    y = sum - x
+    return
+}
+                    
+func main() {
+    fmt.Println(split(17))
+}           
+            </code></pre>
+        </div>
+    </div>
+
+    <h3 id="4.8">4.8 Déclarer une variable en Go</h3>
+    <p>L'instruction <code class="language-go">var</code> déclare une ou plusieurs variables du même type, on remarque
+        là encore que le type de la variable est placé à la fin de la déclaration.<br><br>
+
+        Une instruction <code class="language-go">var</code> peut être placée dans le corps d'une fonction ou bien en
+        dehors (voir exemple ci-dessous).
+
+    <div class="code-area">
+        <div class="title-bar">
+            Déclaration d'une variable
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import "fmt"
+
+//en dehors
+var c, python, java bool
+                
+func main() {
+    //dans la fonction
+    var i int
+    fmt.Println(i, c, python, java)
+}</code></pre>
+        </div>
+    </div>
+    <h3 id="4.9">4.9 Initialisation d'une variable</h3>
+    <p>L'instruction <code class="language-go">var</code> peut également initialiser les variables qu'elle déclare. Pour
+        celà, on ajoute un '=' et on spécifie les valeurs séparées par une virgule. <br><br>
+
+        Si on initialise les variables, il n'y a pas besoin de spécifier leur type puisque Go est capable de le
+        détecter automatiquement! <code class="language-go">var i int = 3</code> peut être raccourci en
+        <code class="language-go">var i = 3</code> !
+
+    <div class="code-area">
+        <div class="title-bar">
+            Initialisation d'une variable
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import "fmt"
+                
+var i, j int = 1, 2
+                
+func main() {
+    //pas besoin de spécifier les types des variables ici
+    var c, python, java = true, false, "no!"
+    fmt.Println(i, j, c, python, java)
+}</code></pre>
+        </div>
+    </div>
+    <h3 id="4.10">4.10 Initialiser avec l'opérateur ':=' dans une fonction</h3>
+    <p>L'opérateur <code class="language-go">:=</code> permet d'initialiser implicitement une ou plusieurs variables
+        sans le mot clé
+        <code class="language-go">var</code>. Il permet d'initialiser rapidement des variables sans avoir besoin de
+        spécifier leurs types, puisque Go se chargera de le détecter automatiquement.<br><br>
+
+        Attention cependant : on ne peut utiliser ce raccourci <strong>QUE DANS LE CORPS D'UNE FONCTION</strong>, pas en
+        dehors !<code class="language-go">var i int = 3</code> peut être raccourci en
+        <code class="language-go">i := 3</code> dans une fonction!
+
+    <div class="code-area">
+        <div class="title-bar">
+            Initialisation d'une variable avec :=
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import "fmt"
+                
+func main() {
+    var i, j int = 1, 2
+    k := 3
+    c, python, java := true, false, "no!"
+                
+    fmt.Println(i, j, k, c, python, java)
+}</code></pre>
+        </div>
+    </div>
+    <h3 id="4.11">4.11 Les types primitifs</h3>
+    <div class="code-area">
+        <div class="title-bar">
+            Les types primitifs en Go
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">bool //booléen
+
+string //chaîne de caractères Unicode
+                
+int  int8  int16  int32  int64 //entiers signés (négatifs où positifs)
+uint uint8 uint16 uint32 uint64 uintptr //entiers non signés (positifs uniquement)
+                
+byte // synonyme pour uint8 
+                
+rune // synonyme pour int32
+// représente un code Unicode
+                
+float32 float64 //nombre à virgule (flottant)
+                
+complex64 complex128 //nombre complexe (peu utilisé)</code></pre>
+        </div>
+    </div>
+    <p>
+        Dans l'exemple ci-dessous, on déclare des variables de plusieurs types. On montre aussi que l'on peut rassembler
+        la
+        déclaration de plusieurs variables en un seul bloc <code class="language-go">var</code> "factorisé", comme avec
+        les
+        instructions d'importation.<br><br>
+
+        Les types <code class="language-go">int, uint et uintptr</code> sont généralement codés sur 32 bits sur les
+        systèmes 32 bits et sur 64 bits sur les systèmes 64 bits.
+        Lorsque vous avez besoin d'utiliser un entier, <strong>n'avez pas besoin de spécifier sa taille</strong> dans la
+        plupart des
+        cas. Utilisez simplement <code class="language-go">int</code> sans spécifier de taille!
+
+    </p>
+    <div class="code-area">
+        <div class="title-bar">
+            Différents types de variables
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "math/cmplx"
+)
+                
+var (
+    ToBe   bool       = false
+    MaxInt uint64     = 1<<64 - 1
+    z      complex128 = cmplx.Sqrt(-5 + 12i)
+)
+                
+func main() {
+    fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
+    fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
+    fmt.Printf("Type: %T Value: %v\n", z, z)
+}
+                </code></pre>
+        </div>
+    </div>
+    <h3 id="4.12">4.12 Les valeurs d'initialisation par défaut </h3>
+    <p>Si vous ne spécifiez pas explicitement de valeur lors de la déclaration d'une variable, elle recevra une
+        <strong>valeur par défaut</strong>. <br><br>
+
+        Cette valeur vaut:
+    </p>
+    <ul>
+        <li><code class="language-go">0</code> pour les types numériques</li>
+        <li><code class="language-go">false</code> pour les booléens</li>
+        <li><code class="language-go">""</code> (chaîne vide) pour les chaînes</li>
+    </ul>
+
+    <div class="code-area">
+        <div class="title-bar">
+            Valeurs par défaut
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import "fmt"
+                
+func main() {
+    var i int
+    var f float64
+    var b bool
+    var s string
+    fmt.Printf("%v %v %v %q\n", i, f, b, s)
+}</code></pre>
+        </div>
+    </div>
+    <h3 id="4.13">4.13 Conversion d'un type vers un autre </h3>
+    <p>L'expression <code class="language-go">T(v)</code> convertit la valeur de <code class="language-go">v</code> vers
+        le type <code class="language-go">T</code>.<br>
+        Quelques conversions de types numériques:<br><br>
+        <code class="language-go">var i int = 42</code><br>
+        <code class="language-go">var f float64 = float64(i)</code><br>
+        <code class="language-go">var u uint = uint(f)</code><br><br>
+        Ou, en utilisant <code class="language-go">:=</code>:<br><br>
+        <code class="language-go">i := 42</code><br>
+        <code class="language-go">f := float64(i)</code><br>
+        <code class="language-go">u := uint(f)</code>
+    </p>
+
+    <div class="code-area">
+        <div class="title-bar">
+            D'un type vers un autre: exemple complet
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "math"
+)
+                
+func main() {
+    var x, y int = 3, 4
+    var f float64 = math.Sqrt(float64(x*x + y*y))
+    var z uint = uint(f)
+    fmt.Println(x, y, z)
+}</code></pre>
+        </div>
+    </div>
+    <h3 id="4.14">4.14 Les constantes </h3>
+    <p>Les <strong>constantes</strong> sont déclarées de la même manière que les variables, en utilisant le mot clé
+        <code class="language-go">const</code>.<br><br>
+
+        Les constantes peuvent être des caractères, des chaînes de caractères, des booléens ou des
+        valeurs numériques,
+        <strong>mais rien d'autre !</strong><br><br>
+
+        On ne peut pas déclarer de constantes en utilisant l'opérateur <code class="language-go">:=</code>.
+
+    </p>
+
+    <div class="code-area">
+        <div class="title-bar">
+            Déclarer des constantes
+            <div class="icons">
+                <div class="raw-code">View RAW</div>
+                <div class="link-icon icon"></div>
+                <div class="copy-icon icon"></div>
+                <a href="https://go.dev/play/p/XyaSdU3mxuZ" target="_blank">
+                    <div class="run-icon icon"></div>
+                </a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <pre><code class="language-go">package main
+
+import "fmt"
+                
+const Pi = 3.14
+                
+func main() {
+    const World = "世界"
+    fmt.Println("Hello", World)
+    fmt.Println("Happy", Pi, "Day")
+                
+    const Truth = true
+    fmt.Println("Go rules?", Truth)
+}</code></pre>
+        </div>
+    </div>
+    <div class="footer">Tous droits réservés © Go Ninja, 2022</div>
+    <script>
+        document.getElementById("toggle-menu").addEventListener("click", showMenu);
+        document.getElementById("ask-email-btn").addEventListener("click", addEmailToContacts);
+
+        function showMenu() {
+            document.getElementById("menu").style.display = "flex";
+            this.removeEventListener("click", showMenu);
+            this.addEventListener("click", hideMenu);
+        }
+
+        function hideMenu() {
+            document.getElementById("menu").style.display = "none";
+            this.removeEventListener("click", hideMenu);
+            this.addEventListener("click", showMenu);
+        }
+
+        function addEmailToContacts() {
+            var email = document.getElementById("email-input").value;
+            var re = /\S+@\S+\.\S+/;
+
+            if (re.test(email)) {
+                document.getElementById("ask-email-btn").textContent = "Lot envoyé par email ✅";
+            } else {
+                document.getElementById("email-input").focus();
+            }
+        }
+
+        function movetotop() {
+            window.scrollTo(0, 0);
+        }
+
+        function offsetAnchor() {
+            if (location.hash.length !== 0) {
+                window.scrollTo(window.scrollX, window.scrollY - 100);
+            }
+        }
+        window.addEventListener("hashchange", offsetAnchor);
+
+        window.setTimeout(offsetAnchor, 1);
+
+
+    </script>
+    <script src="../js/prism.js"></script>
+</body>
+
+
+</html>
